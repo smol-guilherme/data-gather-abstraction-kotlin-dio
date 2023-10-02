@@ -9,6 +9,7 @@ data class ConteudoEducacional(val nome: String, val nivel: Nivel, var duracao: 
 data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
 
     val inscritos = mutableListOf<Usuario>()
+    val leituraInscritos: List<Usuario> = inscritos
     
     fun matricular(usuario: Usuario) {
         // TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
@@ -17,6 +18,10 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
     }
 
     fun mostrarMatriculados() {
+        if(leituraInscritos.count() == 0) {
+            println("Não foram encontradas matrículas para $nome")
+            return
+        }
         println("Matriculados na formação $nome:")
         for(usuario in inscritos) {
             println("${usuario.nome}")

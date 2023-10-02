@@ -13,6 +13,10 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
         inscritos.add(usuario)
     }
 
+    fun matricular(usuarios: List<Usuario>) {
+        inscritos.addAll(usuarios)
+    }
+
     fun mostrarMatriculados() {
         if(leituraInscritos.count() == 0) {
             println("Não foram encontradas matrículas para $nome")
@@ -30,6 +34,13 @@ fun main() {
     val usuario1 = Usuario("Alice", "alice@example.com")
     val usuario2 = Usuario("Bob", "bob@example.com")
     val usuario3 = Usuario("Charlie", "charlie@example.com")
+    val usuarios = listOf(
+    Usuario("Alice", "alice@example.com"),
+    Usuario("Bob", "bob@example.com"),
+    usuario3,
+    Usuario("David", "david@example.com"),
+    Usuario("Eve", "eve@example.com")
+    )
 
     // Dummy Content
     val conteudo1 = ConteudoEducacional("Curso de Kotlin Básico", Nivel.BASICO, 60)
@@ -45,7 +56,6 @@ fun main() {
 
     val formacao2 = Formacao("Formação de Desenvolvimento Android", listOf(conteudo2, conteudo3))
     formacao2.mostrarMatriculados()
-    formacao2.matricular(usuario2)
-    formacao2.matricular(usuario3)
+    formacao2.matricular(usuarios)
     formacao2.mostrarMatriculados()
 }

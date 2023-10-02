@@ -1,5 +1,3 @@
-// [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
-
 enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
 
 data class Usuario(val nome: String, val email: String)
@@ -12,9 +10,7 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
     val leituraInscritos: List<Usuario> = inscritos
     
     fun matricular(usuario: Usuario) {
-        // TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
         inscritos.add(usuario)
-        println("${usuario.nome} foi inserido na formação $nome")
     }
 
     fun mostrarMatriculados() {

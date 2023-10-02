@@ -11,7 +11,16 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
     val inscritos = mutableListOf<Usuario>()
     
     fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+        // TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+        inscritos.add(usuario)
+        println("${usuario.nome} foi inserido na formação $nome")
+    }
+
+    fun mostrarMatriculados() {
+        println("Matriculados na formação $nome:")
+        for(usuario in inscritos) {
+            println("${usuario.nome}")
+    }
     }
 }
 
